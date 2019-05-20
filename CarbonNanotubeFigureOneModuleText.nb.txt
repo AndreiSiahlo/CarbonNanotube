@@ -128,7 +128,7 @@ ShowNanotubeAtomsD =
 Print["NanotubeAtomsD.jpg"];
 Print[ShowNanotubeAtomsD];
 Export[ToFileName[NotebookDirectory[], "NanotubeAtomsD.jpg"], 
-  NanotubeAtomsD];
+  ShowNanotubeAtomsD];
 (*GrapheneLinesWLHABd=Table[Line[{GrapheneFlakeWLHAdXYZ[[iW,jL,kH]],\
 GrapheneFlakeWLHBdXYZ[[iW,jL,kH]]}],{iW,nWp},{jL,nLp},{kH,nHp}];*)
 NanotubeLinesABd = 

@@ -9,7 +9,7 @@ Print["I.1. Input parameters"];
 Print["Parameters of the Carbon Nanotube"];
 Print["nL7 - the number of the cells along the Length of the \
 Nanotube"];
-nL7 = 2;
+nL7 = 7;
 Print["nC10 - the number of the cell along the circumference of the \
 nanotube"];
 nC10 = 10;

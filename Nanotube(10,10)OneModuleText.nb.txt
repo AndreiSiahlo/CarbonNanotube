@@ -1,0 +1,142 @@
+Print["--------------------------------------------------"];
+Print["Nanotube(10,10)OneModuleText.nb.txt"];
+Print["Copy the whole text to a Wolfram Mathematica 6+ notebook and \
+run"];
+Print["Andrei Siahlo \
+(http://physics.bsu.by/sites/all/other/info/index.php?k=11&p=p&id=258)\
+"];
+Print["--------------------------------------------------"];
+Print["I. Input"];
+Print["I.1. Input parameters"];
+Print["Parameters of the Carbon Nanotube"];
+Print["nL7 - the number of the cells along the Length of the \
+Nanotube"];
+nL7 = 3;
+Print["nC10 - the number of the cell along the circumference of the \
+nanotube"];
+nC10 = 10;
+nLp = nL7;
+nCp = nC10;
+StructureName = 
+  StringJoin["Nanotube(", ToString[nCp], ",", ToString[nCp], ")"];
+Print["Structure Name: ", StructureName];
+Print["I.2 Units"];
+m =.;
+nm = 10.^(-9) m;
+AA = 0.1 nm;
+Print["I.3.Input Geometry constants "];
+aCCp = 1.42 AA;
+aa = aCC 2 Sqrt[3];
+aap = aCCp 2 Sqrt[3];
+Print["aCC=", aCCp, "  aa=", aa "=", aap];
+Sa = (aCC^2) 3 Sqrt[3]/4;
+Sap = (aCCp^2) 3 Sqrt[3]/4;
+Print["Sa=", Sa, "=", Sap];
+RNanotube = 2 3 aCC nC/(2 Pi);
+RNanotubep = 2 3 aCCp nCp/(2 Pi);
+Print["RNanotube=", RNanotube, "=", RNanotubep];
+(*h334=N[0.334 nm];
+Print["h=",h334];*)
+Print["--------------------------------------------------"];
+m = 1;
+Print["II Generate the Atom coordinates in the Nanotube"];
+Print["II.1. Initialize the Coordinates of the Atoms"];
+(*GrapheneFlakeWLHAdXYZ=Table[{1.,1.,1.},{iW,1,nWp},{jL,1,nLp},{kH,1,\
+nHp}];*)
+NanotubeAdXYZ = Table[{1., 1., 1.}, {iC, 1, 2 nCp}, {jL, 1, nLp}];
+(*GrapheneFlakeWLHAuXYZ=Table[{1.,1.,1.},{iW,1,nWp},{jL,1,nLp},{kH,1,\
+nHp}];*)
+NanotubeAuXYZ = Table[{1., 1., 1.}, {iC, 1, 2 nCp}, {jL, 1, nLp}];
+(*GrapheneFlakeWLHBdXYZ=Table[{1.,1.,1.},{iW,1,nWp},{jL,1,nLp},{kH,1,\
+nHp}];*)
+NanotubeBdXYZ = Table[{1., 1., 1.}, {iC, 1, 2 nCp}, {jL, 1, nLp}];
+(*GrapheneFlakeWLHBuXYZ=Table[{1.,1.,1.},{iW,1,nWp},{jL,1,nLp},{kH,1,\
+nHp}];*)
+NanotubeBuXYZ = Table[{1., 1., 1.}, {iC, 1, 2 nCp}, {LC, 1, nLp}];
+
+NanotubeAtomsAd = 
+  Table[Sphere[NanotubeAdXYZ[[iC, jL]], 0.02 nm], {iC, 2 nCp}, {jL, 
+    nLp}];
+NanotubeAtomsBd = 
+  Table[Sphere[NanotubeBdXYZ[[iC, jL]], 0.02 nm], {iC, 2 nCp}, {jL, 
+    nLp}];
+"Clear[iL,iC,iH,phiAd,phiAu,phiBd,phiBu,zAd,zAu,zBd,zBu];"
+Clear[iL, iC, iH, phiA, phiB, zAd, zAu, zBd, zBu];
+DebugLoop = 0;
+Print["II.2. Calculate the Coordinates of the Atoms in the \
+Nanotube"];
+phiA = -1;
+For[iL = 1, iL <= nLp, iL++, If[DebugLoop >= 1, Print["iL=", iL];];
+  For[iC = 1, iC <= 2 nCp, iC++, 
+   If[DebugLoop == 1, Print["iC=", iC];];
+   xA = If[
+     IntegerPart[(iL - 1)/2] == (iL - 1)/
+       2, (iW - 1) 1.5 aCCp, (iW - 1) 1.5 aCCp + 0.0 aCCp];
+   phiA = 
+    If[IntegerPart[(iL - 1)/2] == (iL - 1)/
+       2, ((iC - 1) 1.5 aCCp) 2 Pi/(2 
+         nCp 1.5 aCCp), ((iC - 1) 1.5 aCCp + 
+        0.0 aCCp) 2 Pi/(2 nCp 1.5 aCCp)];
+   If[DebugLoop >= 2, 
+    Print["iC=", iC, " phiAd/(2Pi)=", phiA/(2 Pi)];];
+   zAd = If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2),
+      2 (iL - 1) (aap/2) - 2 0.25 aap];
+   zAu = If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2),
+      2 (iL - 1) (aap/2) + 2 0.25 aap];
+   phiB = phiA + aCCp 2 Pi/(nCp 1.5 aCCp 2);
+   zBd = zAd;
+   zBu = zAu;
+   If[DebugLoop >= 3, 
+    Print["iL=", iL, "  iC=", iC, 
+      "NanotubeABdXYZ[[iC,iL]], NanotubeABuXYZ[[iC,iL]] are \
+defined"];];
+   NanotubeAdXYZ[[iC, iL]] = {RNanotubep Sin[phiA], 
+     RNanotubep Cos[phiA], zAd};
+   NanotubeAuXYZ[[iC, iL]] = {RNanotubep Sin[phiA], 
+     RNanotubep Cos[phiA], zAu};
+   NanotubeBdXYZ[[iC, iL]] = {RNanotubep Sin[phiB], 
+     RNanotubep Cos[phiB], zBd};
+   NanotubeBuXYZ[[iC, iL]] = {RNanotubep Sin[phiB], 
+     RNanotubep Cos[phiB], zBu};];];
+Print["The Coordinates of the Nanotube Atoms are calculated"];
+Clear[iL, iC, phiAd, phiAu, phiBd, phiBu, zAd, zAu, zBd, zBu];
+NanotubeAtomsAd = 
+  Table[Sphere[NanotubeAdXYZ[[iC, jL]], 0.04 nm], {iC, 2 nCp}, {jL, 
+    nLp}];
+NanotubeAtomsBd = 
+  Table[Sphere[NanotubeBdXYZ[[iC, jL]], 0.04 nm], {iC, 2 nCp}, {jL, 
+    nLp}];
+NanotubeAtoms = 
+  Graphics3D[{{Green, NanotubeAtomsAd}, {Yellow, NanotubeAtomsBd}}];
+Print[StringJoin[StructureName, "Atoms.jpg"]];
+Print[NanotubeAtoms];
+Export[ToFileName[NotebookDirectory[], 
+   StringJoin[StructureName, "Atoms.jpg"]], NanotubeAtoms];
+(*GrapheneLinesWLHABd=Table[Line[{GrapheneFlakeWLHAdXYZ[[iW,jL,kH]],\
+GrapheneFlakeWLHBdXYZ[[iW,jL,kH]]}],{iW,nWp},{jL,nLp},{kH,nHp}];*)
+NanotubeLinesABd = 
+  Table[Line[{NanotubeAdXYZ[[iC, jL]], NanotubeBdXYZ[[iC, jL]]}], {iC,
+     2 nCp}, {jL, nLp}];
+NanotubeLinesABm1d = 
+  Table[Line[{NanotubeAdXYZ[[iC, jL]], 
+     NanotubeBdXYZ[[If[iC > 1, iC - 1, 2 nCp], jL]]}], {iC, 1, 
+    2 nCp}, {jL, nLp}];
+NanotubeLinesABm1u = 
+  Table[Line[{NanotubeAuXYZ[[iC, jL]], 
+     NanotubeBuXYZ[[If[iC > 1, iC - 1, 2 nCp], jL]]}], {iC, 1, 
+    2 nCp}, {jL, nLp}];
+NanotubeLines = 
+  Graphics3D[{NanotubeLinesABd, NanotubeLinesABm1d, 
+    Transpose[Take[Transpose[NanotubeLinesABm1u], nLp - 1]]}];
+Print[StringJoin[StructureName, "Lines.jpg"]];
+Print[NanotubeLines];
+Export[ToFileName[NotebookDirectory[], 
+   StringJoin[StructureName, "Lines.jpg"]], NanotubeLines];
+NanotubeFigure = 
+  Graphics3D[{{Green, NanotubeAtomsAd}, {Yellow, NanotubeAtomsBd}, 
+    NanotubeLinesABd, NanotubeLinesABm1d, 
+    Transpose[Take[Transpose[NanotubeLinesABm1u], nLp - 1]]}];
+Print[StringJoin[StructureName, ".jpg"]];
+Print[NanotubeFigure];
+Export[ToFileName[NotebookDirectory[], 
+   StringJoin[StructureName, ".jpg"]], NanotubeFigure];

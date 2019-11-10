@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     95839,       2041]
-NotebookOptionsPosition[     94354,       1993]
-NotebookOutlinePosition[     94714,       2009]
-CellTagsIndexPosition[     94671,       2006]
+NotebookDataLength[    158353,       3324]
+NotebookOptionsPosition[    156570,       3271]
+NotebookOutlinePosition[    156909,       3286]
+CellTagsIndexPosition[    156866,       3283]
 WindowFrame->Normal
 ContainsDynamic->False*)
 
@@ -25,27 +25,41 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
   "Print", "[", "\"\<--------------------------------------------------\>\"", 
-   "]"}], ";"}], "\[IndentingNewLine]", 
+   "]"}], ";"}], "\n", 
  RowBox[{
-  RowBox[{"Print", "[", "\"\<Nanotube(5,5)OneModuleText.nb.txt\>\"", "]"}], 
-  ";"}], "\n", 
+  RowBox[{"Print", "[", "\"\<Nanotube(5,5).txt\>\"", "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
   "Print", "[", 
    "\"\<Copy the whole text to a Wolfram Mathematica 6+ notebook and run\>\"",
     "]"}], ";"}], "\n", 
  RowBox[{
+  RowBox[{"Print", "[", "\"\<This programm \>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<- Generates the coordinates of the (10,10) natotube\>\"",
+    "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<- Shows and Exports the the Image of the nanotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  "\"\<- Exports the coordinates of the nanotube to the text files in the xyz \
+and the gjf formats\>\"", "]"}], "\n", 
+ RowBox[{
   RowBox[{
   "Print", "[", 
    "\"\<Andrei Siahlo \
 (http://physics.bsu.by/sites/all/other/info/index.php?k=11&p=p&id=258)\>\"", 
-   "]"}], ";"}], "\[IndentingNewLine]", 
+   "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
   "Print", "[", "\"\<--------------------------------------------------\>\"", 
    "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Print", "[", "\"\<I. Input\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"DebugLoop", "=", "0"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Print", "[", "\"\<I.1. Input parameters\>\"", "]"}], ";"}], "\n", 
  RowBox[{
@@ -61,14 +75,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
   "Print", "[", 
-   "\"\<nC5 - the number of the cell along the circumference of the \
-nanotube\>\"", "]"}], ";"}], "\n", 
+   "\"\<nC10 - the number of the cell along the circumference of the nanotube\
+\>\"", "]"}], ";"}], "\n", 
  RowBox[{
-  RowBox[{"nC5", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"nC5", "=", "5"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"nLp", "=", "nL7"}], ";"}], "\n", 
  RowBox[{
-  RowBox[{"nCp", "=", "nC5"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"nCp", "=", "nC5"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nABp", "=", "2"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"StructureName", "=", 
    RowBox[{"StringJoin", "[", 
@@ -79,7 +95,23 @@ nanotube\>\"", "]"}], ";"}], "\n",
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<Structure Name: \>\"", ",", "StructureName"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"OutputNanotubeFileNameHyperChemXYZ", "=", 
+   RowBox[{"ToFileName", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"StructureName", ",", "\"\<AS.xyz\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"OutputNanotubeFileNameHyperChemGJF", "=", 
+   RowBox[{"ToFileName", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"StructureName", ",", "\"\<AS.gjf\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
  RowBox[{
   RowBox[{"Print", "[", "\"\<I.2 Units\>\"", "]"}], ";"}], "\n", 
  RowBox[{
@@ -146,19 +178,18 @@ nanotube\>\"", "]"}], ";"}], "\n",
    RowBox[{"Print", "[", 
     RowBox[{
     "\"\<RNanotube=\>\"", ",", "RNanotube", ",", "\"\<=\>\"", ",", 
-     "RNanotubep"}], "]"}], ";"}], "\n", 
+     "RNanotubep"}], "]"}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"h334", "=", 
      RowBox[{"N", "[", 
       RowBox[{"0.334", " ", "nm"}], "]"}]}], ";", "\[IndentingNewLine]", 
     RowBox[{"Print", "[", 
-     RowBox[{"\"\<h=\>\"", ",", "h334"}], "]"}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+     RowBox[{"\"\<h=\>\"", ",", "h334"}], "]"}], ";"}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
   "Print", "[", "\"\<--------------------------------------------------\>\"", 
-   "]"}], ";"}], "\[IndentingNewLine]", 
+   "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"m", "=", "1"}], ";"}], "\n", 
  RowBox[{
@@ -166,10 +197,18 @@ nanotube\>\"", "]"}], ";"}], "\n",
   "Print", "[", "\"\<II Generate the Atom coordinates in the Nanotube\>\"", 
    "]"}], ";"}], "\n", 
  RowBox[{
+  RowBox[{"nAtoms", "=", 
+   RowBox[{"4", " ", "nL", " ", "nC"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nAtomsp", "=", 
+   RowBox[{"4", " ", "nLp", " ", "nCp"}]}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Number Of Atoms=\>\"", ",", "nAtomsp"}], "]"}], "\n", 
+ RowBox[{
   RowBox[{
    RowBox[{
    "Print", "[", "\"\<II.1. Initialize the Coordinates of the Atoms\>\"", 
-    "]"}], ";"}], "\n", 
+    "]"}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"GrapheneFlakeWLHAdXYZ", "=", 
@@ -183,7 +222,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
         RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"NanotubeAdXYZ", "=", 
@@ -195,7 +234,8 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"iC", ",", "1", ",", 
         RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
       RowBox[{"{", 
-       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"GrapheneFlakeWLHAuXYZ", "=", 
@@ -209,7 +249,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
         RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"NanotubeAuXYZ", "=", 
@@ -221,7 +261,8 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"iC", ",", "1", ",", 
         RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
       RowBox[{"{", 
-       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"GrapheneFlakeWLHBdXYZ", "=", 
@@ -235,7 +276,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
         RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"NanotubeBdXYZ", "=", 
@@ -247,7 +288,8 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"iC", ",", "1", ",", 
         RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
       RowBox[{"{", 
-       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"GrapheneFlakeWLHBuXYZ", "=", 
@@ -261,7 +303,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
         RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"NanotubeBuXYZ", "=", 
@@ -271,9 +313,28 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
       RowBox[{"{", 
        RowBox[{"iC", ",", "1", ",", 
-        RowBox[{"2", "nCp"}]}], "}"}], ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
       RowBox[{"{", 
        RowBox[{"LC", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"tijkABHatom", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "\"\<CACB\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iAtom", ",", "1", ",", "nAtomsp"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tijkABHatom", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1", ",", "\"\<CACBH\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iAtom", ",", "1", ",", "nAtomsp"}], "}"}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"NanotubeAtomsAd", "=", 
@@ -287,7 +348,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"0.02", " ", "nm"}]}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
@@ -302,18 +363,65 @@ nanotube\>\"", "]"}], ";"}], "\n",
        RowBox[{"0.02", " ", "nm"}]}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], 
-  ";"}], "\n", \
-"\"\<Clear[iL,iC,iH,phiAd,phiAu,phiBd,phiBu,zAd,zAu,zBd,zBu];\>\"", "\n", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeABdXYZ", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1.", " ", "nm"}], ",", 
+       RowBox[{"1.", " ", "nm"}], ",", 
+       RowBox[{"1.", " ", "nm"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeABuXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1.", " ", "nm"}], ",", 
+        RowBox[{"1.", " ", "nm"}], ",", 
+        RowBox[{"1.", " ", "nm"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"jC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"tiAtom", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Clear", "[", 
    RowBox[{
    "iL", ",", "iC", ",", "iH", ",", "phiA", ",", "phiB", ",", "zAd", ",", 
     "zAu", ",", "zBd", ",", "zBu"}], "]"}], ";"}], "\n", 
- RowBox[{
-  RowBox[{"DebugLoop", "=", "0"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
   "Print", "[", 
@@ -322,6 +430,14 @@ nanotube\>\"", "]"}], ";"}], "\n",
  RowBox[{
   RowBox[{"phiA", "=", 
    RowBox[{"-", "1"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iAtom", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"kH", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lA", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lB", "=", "2"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"For", "[", 
    RowBox[{
@@ -340,7 +456,7 @@ nanotube\>\"", "]"}], ";"}], "\n",
       RowBox[{
        RowBox[{"iC", "=", "1"}], ",", 
        RowBox[{"iC", "\[LessEqual]", 
-        RowBox[{"2", "nCp"}]}], ",", 
+        RowBox[{"2", " ", "nCp"}]}], ",", 
        RowBox[{"iC", "++"}], ",", 
        RowBox[{
         RowBox[{"If", "[", 
@@ -393,7 +509,8 @@ nanotube\>\"", "]"}], ";"}], "\n",
              ")"}], " ", "2", " ", 
             RowBox[{"Pi", "/", 
              RowBox[{"(", 
-              RowBox[{"2", "nCp", " ", "1.5", " ", "aCCp"}], ")"}]}]}], ",", 
+              RowBox[{"2", " ", "nCp", " ", "1.5", " ", "aCCp"}], ")"}]}]}], 
+           ",", 
            RowBox[{
             RowBox[{"(", 
              RowBox[{
@@ -404,8 +521,8 @@ nanotube\>\"", "]"}], ";"}], "\n",
               RowBox[{"0.0", " ", "aCCp"}]}], ")"}], " ", "2", " ", 
             RowBox[{"Pi", "/", 
              RowBox[{"(", 
-              RowBox[{"2", "nCp", " ", "1.5", " ", "aCCp"}], ")"}]}]}]}], 
-          "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"2", " ", "nCp", " ", "1.5", " ", "aCCp"}], ")"}]}]}]}],
+           "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{"DebugLoop", "\[GreaterEqual]", "2"}], ",", 
@@ -485,16 +602,24 @@ nanotube\>\"", "]"}], ";"}], "\n",
             "\"\<iL=\>\"", ",", "iL", ",", "\"\<  iC=\>\"", ",", "iC", ",", 
              "\"\<NanotubeABdXYZ[[iC,iL]], NanotubeABuXYZ[[iC,iL]] are \
 defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"xAd", "=", 
+         RowBox[{"RNanotubep", " ", 
+          RowBox[{"Sin", "[", "phiA", "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"yAd", "=", 
+         RowBox[{"RNanotubep", " ", 
+          RowBox[{"Cos", "[", "phiA", "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"xBd", "=", 
+         RowBox[{"RNanotubep", " ", 
+          RowBox[{"Sin", "[", "phiB", "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"yBd", "=", 
+         RowBox[{"RNanotubep", " ", 
+          RowBox[{"Cos", "[", "phiB", "]"}]}]}], ";", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"NanotubeAdXYZ", "[", 
           RowBox[{"[", 
            RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
          RowBox[{"{", 
-          RowBox[{
-           RowBox[{"RNanotubep", " ", 
-            RowBox[{"Sin", "[", "phiA", "]"}]}], ",", 
-           RowBox[{"RNanotubep", " ", 
-            RowBox[{"Cos", "[", "phiA", "]"}]}], ",", "zAd"}], "}"}]}], ";", 
+          RowBox[{"xAd", ",", "yAd", ",", "zAd"}], "}"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"NanotubeAuXYZ", "[", 
@@ -512,11 +637,7 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
           RowBox[{"[", 
            RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
          RowBox[{"{", 
-          RowBox[{
-           RowBox[{"RNanotubep", " ", 
-            RowBox[{"Sin", "[", "phiB", "]"}]}], ",", 
-           RowBox[{"RNanotubep", " ", 
-            RowBox[{"Cos", "[", "phiB", "]"}]}], ",", "zBd"}], "}"}]}], ";", 
+          RowBox[{"xBd", ",", "yBd", ",", "zBd"}], "}"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"NanotubeBuXYZ", "[", 
@@ -527,7 +648,67 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
            RowBox[{"RNanotubep", " ", 
             RowBox[{"Sin", "[", "phiB", "]"}]}], ",", 
            RowBox[{"RNanotubep", " ", 
-            RowBox[{"Cos", "[", "phiB", "]"}]}], ",", "zBu"}], "}"}]}], 
+            RowBox[{"Cos", "[", "phiB", "]"}]}], ",", "zBu"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        "\"\<The coordinates of the atoms are calculated. Now remember the \
+indexes\>\"", ";", "\[IndentingNewLine]", 
+        RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"lAB", "=", "lA"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeABdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", 
+         RowBox[{"{", 
+          RowBox[{"xAd", ",", "yAd", ",", "zAd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<iL,iC,kH,lAB=\>\"", ",", 
+             RowBox[{"{", 
+              RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "}"}]}], 
+            "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tiAtom", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", "iAtom"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<iAtom=\>\"", ",", "iAtom"}], "]"}], ";"}]}], "]"}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tijkABHatom", "[", 
+          RowBox[{"[", "iAtom", "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"iL", ",", "iC", ",", "kH", ",", "\"\<CA\>\""}], "}"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"lAB", "=", "lB"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeABdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", 
+         RowBox[{"{", 
+          RowBox[{"xBd", ",", "yBd", ",", "zBd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tiAtom", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", "iAtom"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tijkABHatom", "[", 
+          RowBox[{"[", "iAtom", "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"iL", ",", "iC", ",", "kH", ",", "\"\<CB\>\""}], "}"}]}], 
         ";"}]}], "]"}], ";"}]}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
@@ -540,6 +721,9 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
    "iL", ",", "iC", ",", "phiAd", ",", "phiAu", ",", "phiBd", ",", "phiBu", 
     ",", "zAd", ",", "zAu", ",", "zBd", ",", "zBu"}], "]"}], ";"}], "\n", 
  RowBox[{
+  RowBox[{"Print", "[", "\"\<III Show the Atoms in the Nanotube\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
   RowBox[{"NanotubeAtomsAd", "=", 
    RowBox[{"Table", "[", 
     RowBox[{
@@ -551,7 +735,7 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
        RowBox[{"0.04", " ", "nm"}]}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
@@ -566,7 +750,7 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
        RowBox[{"0.04", " ", "nm"}]}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
@@ -632,7 +816,7 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
           RowBox[{"iC", ",", "jL"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
@@ -652,11 +836,11 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
             RowBox[{
              RowBox[{"iC", ">", "1"}], ",", 
              RowBox[{"iC", "-", "1"}], ",", 
-             RowBox[{"2", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
+             RowBox[{"2", " ", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
        "}"}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", "1", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
@@ -676,13 +860,19 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
             RowBox[{
              RowBox[{"iC", ">", "1"}], ",", 
              RowBox[{"iC", "-", "1"}], ",", 
-             RowBox[{"2", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
+             RowBox[{"2", " ", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
        "}"}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"iC", ",", "1", ",", 
-       RowBox[{"2", "nCp"}]}], "}"}], ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"nLp", "\[LessEqual]", "1"}], ",", 
+    RowBox[{"NanotubeLinesABm1u", "=", "NanotubeLinesABm1d"}]}], "]"}], 
+  ";"}], "\n", 
  RowBox[{
   RowBox[{"NanotubeLines", "=", 
    RowBox[{"Graphics3D", "[", 
@@ -692,8 +882,10 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
        RowBox[{"Take", "[", 
         RowBox[{
          RowBox[{"Transpose", "[", "NanotubeLinesABm1u", "]"}], ",", 
-         RowBox[{"nLp", "-", "1"}]}], "]"}], "]"}]}], "}"}], "]"}]}], 
-  ";"}], "\n", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"nLp", "-", "1"}], ",", "1"}], "]"}]}], "]"}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"StringJoin", "[", 
@@ -724,8 +916,10 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
        RowBox[{"Take", "[", 
         RowBox[{
          RowBox[{"Transpose", "[", "NanotubeLinesABm1u", "]"}], ",", 
-         RowBox[{"nLp", "-", "1"}]}], "]"}], "]"}]}], "}"}], "]"}]}], 
-  ";"}], "\n", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"nLp", "-", "1"}], ",", "1"}], "]"}]}], "]"}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"StringJoin", "[", 
@@ -734,118 +928,334 @@ defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]",
  RowBox[{
   RowBox[{"Print", "[", "NanotubeFigure", "]"}], ";"}], "\n", 
  RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"ToFileName", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"StructureName", ",", "\"\<.jpg\>\""}], "]"}]}], "]"}], ",", 
+     "NanotubeFigure"}], "]"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<IV. Export the Nanotube Atom Coordinates in the XYZ and the GJF \
+Formats\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iX", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iY", "=", "2"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iZ", "=", "3"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iAtom", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"xyzString", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<\>\"", ",", 
+     RowBox[{"{", "0", "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<\>\"", ",", 
+     RowBox[{"{", "0", "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"xyzStringN", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfStringN", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<%0scf int\>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<#\>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\< \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{"nLp", " ", "nCp", " ", "2"}], "-", 
+         RowBox[{"2", " ", "nLp"}]}], "]"}], ",", "\"\< pm3 1scf\>\""}], 
+      "]"}]}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\< \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<0 1 \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfFirstAtomStringN", "=", 
+   RowBox[{"gjfStringN", "+", "1"}]}], ";"}], "\n", 
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+   RowBox[{
+    RowBox[{"Print", "[", "gjfString", "]"}], ";"}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"iL", "=", "1"}], ",", 
+     RowBox[{"iL", "\[LessEqual]", "nLp"}], ",", 
+     RowBox[{"iL", "++"}], ",", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<iL=\>\"", ",", "iL"}], "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"iC", "=", "1"}], ",", 
+        RowBox[{"iC", "\[LessEqual]", 
+         RowBox[{"2", " ", "nCp"}]}], ",", 
+        RowBox[{"iC", "++"}], ",", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"DebugLoop", "\[Equal]", "1"}], ",", 
+           RowBox[{
+            RowBox[{"Print", "[", 
+             RowBox[{"\"\<iC=\>\"", ",", "iC"}], "]"}], ";"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"lAB", "=", "lA"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"xyzStringAppending", "=", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{
+            RowBox[{"Switch", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"tijkABHatom", "[", 
+                RowBox[{"[", 
+                 RowBox[{"tiAtom", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], 
+                  "]"}], "]"}], "]"}], "[", 
+               RowBox[{"[", "4", "]"}], "]"}], ",", "\"\<CA\>\"", ",", 
+              "\"\<6\\t\>\"", ",", "\"\<CB\>\"", ",", "\"\<6\\t\>\"", ",", 
+              "\"\<H\>\"", ",", "\"\<1\\t\>\"", ",", "\"\<F\>\"", ",", 
+              "\"\<9\\t\>\"", ",", "\"\<O\>\"", ",", "\"\<8\\t\>\"", ",", 
+              "\"\<N\>\"", ",", "\"\<7\\t\>\""}], "]"}], ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iX"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iY"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iZ"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}]}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfStringAppending", "=", "xyzStringAppending"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"xyzString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"xyzString", ",", "xyzStringAppending"}], "]"}]}], ";", 
+         RowBox[{"xyzStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"gjfString", ",", "gjfStringAppending"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"gjfStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"lAB", "=", "lB"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"xyzStringAppending", "=", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{
+            RowBox[{"Switch", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"tijkABHatom", "[", 
+                RowBox[{"[", 
+                 RowBox[{"tiAtom", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], 
+                  "]"}], "]"}], "]"}], "[", 
+               RowBox[{"[", "4", "]"}], "]"}], ",", "\"\<CA\>\"", ",", 
+              "\"\<6\\t\>\"", ",", "\"\<CB\>\"", ",", "\"\<6\\t\>\"", ",", 
+              "\"\<H\>\"", ",", "\"\<1\\t\>\"", ",", "\"\<F\>\"", ",", 
+              "\"\<9\\t\>\"", ",", "\"\<O\>\"", ",", "\"\<8\\t\>\"", ",", 
+              "\"\<N\>\"", ",", "\"\<7\\t\>\""}], "]"}], ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iX"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iY"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iZ"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}]}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfStringAppending", "=", "xyzStringAppending"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"xyzString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"xyzString", ",", "xyzStringAppending"}], "]"}]}], ";", 
+         RowBox[{"xyzStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"gjfString", ",", "gjfStringAppending"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"gjfStringN", "++"}], ";"}]}], "]"}], ";"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "\"\<Swap the 1st and 3rd atoms in the gjfString table (SV)\>\"", ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString1stAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", "gjfFirstAtomStringN", "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString2ndAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "1"}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString3rdAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "2"}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", "gjfFirstAtomStringN", "]"}], "]"}], "=", 
+     "gjfString3rdAtom"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "2"}], "]"}], "]"}], "=", 
+     "gjfString1stAtom"}], ";"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "OutputNanotubeFileNameHyperChemXYZ", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
-    RowBox[{"ToFileName", "[", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"StructureName", ",", "\"\<.jpg\>\""}], "]"}]}], "]"}], ",", 
-    "NanotubeFigure"}], "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.7730590156304665`*^9, 3.7730590515525217`*^9}, {
-   3.773059298769662*^9, 3.7730593054000406`*^9}, {3.77305939543019*^9, 
-   3.7730594599358797`*^9}, {3.7730595157890744`*^9, 3.773059558410512*^9}, {
-   3.7730595967547054`*^9, 3.7730596662546806`*^9}, 3.7730598813559837`*^9, {
-   3.7730599187011194`*^9, 3.7730599734092484`*^9}, 3.7730601584158306`*^9, {
-   3.773060842681968*^9, 3.7730609905284243`*^9}, {3.7730610482087235`*^9, 
-   3.773061055965167*^9}, {3.773061177098096*^9, 3.7730612229827204`*^9}, {
-   3.773061275676734*^9, 3.773061277440835*^9}, {3.7730613198842626`*^9, 
-   3.773061375296432*^9}, {3.7730614268613815`*^9, 3.773061471643943*^9}, {
-   3.773061510270152*^9, 3.7730615458451867`*^9}, 3.773061645973914*^9, 
-   3.773061703318194*^9, {3.7730620206873465`*^9, 3.7730620215533957`*^9}, {
-   3.7730620549303045`*^9, 3.773062101856989*^9}, {3.773062156091091*^9, 
-   3.773062193804248*^9}, {3.7730622859905205`*^9, 3.7730624941094246`*^9}, {
-   3.773062553196804*^9, 3.7730625971203165`*^9}, 3.7730630515383077`*^9, 
-   3.773063131461879*^9, {3.773063703156578*^9, 3.773063706755784*^9}}],
+   "OutputNanotubeFileNameHyperChemXYZ", ",", "xyzString", ",", 
+    "\"\<text\>\""}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "OutputNanotubeFileNameHyperChemGJF", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "OutputNanotubeFileNameHyperChemGJF", ",", "gjfString", ",", 
+    "\"\<text\>\""}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=."}], ";"}]}], "Input",
+ CellChangeTimes->{{3.782393045742532*^9, 3.7823930486546984`*^9}, {
+  3.7823931281392446`*^9, 3.7823931676275034`*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137367217*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931459627`*^9}],
 
-Cell[BoxData["\<\"NanotubeFigureOneModuleText.nb.txt\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631373892183`*^9}],
+Cell[BoxData["\<\"Nanotube(5,5).txt\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931589637`*^9}],
 
 Cell[BoxData["\<\"Copy the whole text to a Wolfram Mathematica 6+ notebook \
 and run\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374092193`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931719646`*^9}],
+
+Cell[BoxData["\<\"This programm \"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931779647`*^9}],
+
+Cell[BoxData["\<\"- Generates the coordinates of the (10,10) natotube\"\>"], \
+"Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931839647`*^9}],
+
+Cell[BoxData["\<\"- Shows and Exports the the Image of the nanotube\"\>"], \
+"Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931931899652`*^9}],
+
+Cell[BoxData["\<\"- Exports the coordinates of the nanotube to the text files \
+in the xyz and the gjf formats\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193195966*^9}],
 
 Cell[BoxData["\<\"Andrei Siahlo \
 (http://physics.bsu.by/sites/all/other/info/index.php?k=11&p=p&id=258)\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374172196`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932029657`*^9}],
 
 Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.77306313742422*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932099667`*^9}],
 
 Cell[BoxData["\<\"I. Input\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374352207`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932169666`*^9}],
 
 Cell[BoxData["\<\"I.1. Input parameters\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374442215`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932239676`*^9}],
 
 Cell[BoxData["\<\"Parameters of the Carbon Nanotube\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374512215`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932299676`*^9}],
 
 Cell[BoxData["\<\"nL7 - the number of the cells along the Length of the \
 Nanotube\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137459222*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193235968*^9}],
 
-Cell[BoxData["\<\"nC5 - the number of the cell along the circumference of the \
-nanotube\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374682226`*^9}],
+Cell[BoxData["\<\"nC10 - the number of the cell along the circumference of \
+the nanotube\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932429686`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -853,28 +1263,13 @@ Cell[BoxData[
    "\[InvisibleSpace]", "\<\"Nanotube(5,5)\"\>"}],
   SequenceForm["Structure Name: ", "Nanotube(5,5)"],
   Editable->False]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137477223*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932499685`*^9}],
 
 Cell[BoxData["\<\"I.2 Units\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631374862237`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932619696`*^9}],
 
 Cell[BoxData["\<\"I.3.Input Geometry constants \"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137495224*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.78239319326997*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -889,12 +1284,7 @@ Cell[BoxData[
    3^Rational[1, 2] "=" $CellContext`aCC, 
    4.919024293495612*^-10 $CellContext`m],
   Editable->False]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375032244`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932779703`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -910,12 +1300,7 @@ Cell[BoxData[
   "Sa=", Rational[3, 4] 3^Rational[1, 2] $CellContext`aCC^2, "=", 
    2.6193804362864135`*^-20 $CellContext`m^2],
   Editable->False]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137514225*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193286971*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -928,76 +1313,39 @@ Cell[BoxData[
   "RNanotube=", 3 $CellContext`aCC $CellContext`nC/Pi, "=", 
    6.780000575714742*^-10 $CellContext`m],
   Editable->False]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375252256`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931932979717`*^9}],
 
 Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375372267`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193308972*^9}],
 
 Cell[BoxData["\<\"II Generate the Atom coordinates in the Nanotube\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375482273`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931933179727`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number Of Atoms=\"\>", "\[InvisibleSpace]", "140"}],
+  SequenceForm["Number Of Atoms=", 140],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193324973*^9}],
 
 Cell[BoxData["\<\"II.1. Initialize the Coordinates of the Atoms\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375572276`*^9}]
-}, Open  ]],
-
-Cell[BoxData["\<\"Clear[iL,iC,iH,phiAd,phiAu,phiBd,phiBu,zAd,zAu,zBd,zBu];\"\>\
-"], "Output",
- CellChangeTimes->{{3.773059031957401*^9, 3.7730590553167367`*^9}, 
-   3.7730593106933436`*^9, 3.773059688892975*^9, 3.7730598892234335`*^9, 
-   3.773061004176205*^9, 3.7730610584923115`*^9, 3.7730616091248064`*^9, 
-   3.773061656378509*^9, 3.773061734670987*^9, 3.7730625222550344`*^9, {
-   3.7730626056868067`*^9, 3.773062629197151*^9}, 3.773063074918645*^9, 
-   3.773063137566228*^9}],
-
-Cell[CellGroupData[{
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193331973*^9}],
 
 Cell[BoxData["\<\"II.2. Calculate the Coordinates of the Atoms in the \
 Nanotube\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375872293`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931933379736`*^9}],
 
 Cell[BoxData["\<\"The Coordinates of the Nanotube Atoms are calculated\"\>"], \
 "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631375962296`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931933449745`*^9}],
+
+Cell[BoxData["\<\"III Show the Atoms in the Nanotube\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193350974*^9}],
 
 Cell[BoxData["\<\"Nanotube(5,5)Atoms.jpg\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631376152306`*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931933569746`*^9}],
 
 Cell[BoxData[
  Graphics3DBox[{
@@ -1292,20 +1640,10 @@ Cell[BoxData[
       2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
      SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
       2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}}}]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063137722237*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931934579806`*^9}],
 
 Cell[BoxData["\<\"Nanotube(5,5)Lines.jpg\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063138192264*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.782393193935008*^9}],
 
 Cell[BoxData[
  Graphics3DBox[{{{
@@ -1964,36 +2302,975 @@ Cell[BoxData[
      Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
       2.7054633614225864`*^-9}, {-5.038522344576163*^-10, 
       4.536705896341415*^-10, 2.459512146747806*^-9}}]}}}]], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063138343272*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931940710154`*^9}],
 
 Cell[BoxData["\<\"Nanotube(5,5).jpg\"\>"], "Print",
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.773063138608288*^9}],
+ CellChangeTimes->{3.782389789597291*^9, 3.78239319432003*^9}],
 
-Cell[BoxData[""], "Print",
- GeneratedCell->False,
- CellAutoOverwrite->False,
- CellChangeTimes->{{3.773059031802392*^9, 3.773059055164728*^9}, 
-   3.773059310621339*^9, 3.773059688736966*^9, 3.7730598890784254`*^9, 
-   3.773061004018196*^9, 3.773061058334303*^9, 3.7730616089157944`*^9, 
-   3.7730616561904984`*^9, 3.7730617344599752`*^9, 3.7730625220410223`*^9, {
-   3.7730626055027957`*^9, 3.7730626289641376`*^9}, 3.7730630747176332`*^9, 
-   3.7730631388383007`*^9, 3.77306365669392*^9}]
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+    0, 1, 0], {
+     SphereBox[{0, 6.780000575714742*^-10, 0}, 4.0000000000000004`*^-11], 
+     SphereBox[{0., 6.780000575714742*^-10, 4.919024293495612*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{0, 6.780000575714742*^-10, 9.838048586991224*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{0., 6.780000575714742*^-10, 1.4757072880486836`*^-9}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{0, 6.780000575714742*^-10, 1.967609717398245*^-9}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{0., 6.780000575714742*^-10, 2.459512146747806*^-9}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{0, 6.780000575714742*^-10, 2.9514145760973672`*^-9}, 
+      4.0000000000000004`*^-11]}, {
+     SphereBox[{3.9851843489396035`*^-10, 
+      5.485135687625153*^-10, -2.459512146747806*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{
+      6.448163728018398*^-10, -2.095135399767784*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{
+      8.303106003266271*^-26, -6.780000575714742*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-3.9851843489396045`*^-10, 
+      5.485135687625153*^-10, -2.459512146747806*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}}, 
+   {RGBColor[
+    1, 1, 0], {
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{2.757674674218207*^-10, 6.193838728758421*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, -2.459512146747806*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-2.757674674218207*^-10, -6.193838728758421*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.871652736242087*^-10, -3.3900002878573686`*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-6.742859023157809*^-10, 
+      7.087030411332706*^-11, -2.459512146747806*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-6.742859023157809*^-10, 7.087030411332706*^-11, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 0}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      4.919024293495612*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      9.838048586991224*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      1.4757072880486836`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      1.967609717398245*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      2.459512146747806*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-5.038522344576163*^-10, 4.536705896341415*^-10, 
+      2.9514145760973672`*^-9}, 4.0000000000000004`*^-11]}, {
+     SphereBox[{-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, -2.459512146747806*^-10}, 
+      4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      7.378536440243418*^-10}, 4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      1.229756073373903*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      1.7216585027234642`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      2.2135609320730256`*^-9}, 4.0000000000000004`*^-11], 
+     SphereBox[{-1.4096413834422374`*^-10, 6.631841296109195*^-10, 
+      2.7054633614225864`*^-9}, 4.0000000000000004`*^-11]}}, {{
+     Line3DBox[{{0, 6.780000575714742*^-10, 0}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 0}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 4.919024293495612*^-10}, {
+      2.757674674218207*^-10, 6.193838728758421*^-10, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{0, 6.780000575714742*^-10, 9.838048586991224*^-10}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 
+       9.838048586991224*^-10}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 1.4757072880486836`*^-9}, {
+      2.757674674218207*^-10, 6.193838728758421*^-10, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{0, 6.780000575714742*^-10, 1.967609717398245*^-9}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 
+       1.967609717398245*^-9}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 2.459512146747806*^-9}, {
+      2.757674674218207*^-10, 6.193838728758421*^-10, 
+      2.459512146747806*^-9}}], 
+     Line3DBox[{{0, 6.780000575714742*^-10, 2.9514145760973672`*^-9}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 
+       2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{3.9851843489396035`*^-10, 
+      5.485135687625153*^-10, -2.459512146747806*^-10}, {
+      5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, -2.459512146747806*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 0}, {
+       6.742859023157809*^-10, -7.087030411332684*^-11, 0}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      4.919024293495612*^-10}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      9.838048586991224*^-10}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.4757072880486836`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.967609717398245*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.459512146747806*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.459512146747806*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.9514145760973672`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{
+      6.448163728018398*^-10, -2.095135399767784*^-10, \
+-2.459512146747806*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, \
+-2.459512146747806*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.459512146747806*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.459512146747806*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      7.378536440243418*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      7.378536440243418*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.229756073373903*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.229756073373903*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.7216585027234642`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.7216585027234642`*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.2135609320730256`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.2135609320730256`*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.7054633614225864`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 0}, {
+       1.4096413834422306`*^-10, -6.631841296109196*^-10, 0}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      4.919024293495612*^-10}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      9.838048586991224*^-10}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.4757072880486836`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.967609717398245*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.459512146747806*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.459512146747806*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.9514145760973672`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{
+      8.303106003266271*^-26, -6.780000575714742*^-10, \
+-2.459512146747806*^-10}, {-2.757674674218207*^-10, -6.193838728758421*^-10, \
+-2.459512146747806*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.459512146747806*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      7.378536440243418*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.229756073373903*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.7216585027234642`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.2135609320730256`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.7054633614225864`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+        0}, {-5.871652736242087*^-10, -3.3900002878573686`*^-10, 0}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      4.919024293495612*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      9.838048586991224*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.4757072880486836`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.967609717398245*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.459512146747806*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 2.459512146747806*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.9514145760973672`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, \
+-2.459512146747806*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, -2.459512146747806*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.459512146747806*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.459512146747806*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      7.378536440243418*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.229756073373903*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.7216585027234642`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.2135609320730256`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.7054633614225864`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+        0}, {-5.038522344576163*^-10, 4.536705896341415*^-10, 0}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      4.919024293495612*^-10}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      9.838048586991224*^-10}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.4757072880486836`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.967609717398245*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.459512146747806*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 2.459512146747806*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.9514145760973672`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, 
+      5.485135687625153*^-10, -2.459512146747806*^-10}, \
+{-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, -2.459512146747806*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.7054633614225864`*^-9}}]}}, {{
+     Line3DBox[{{0, 6.780000575714742*^-10, 0}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, -2.459512146747806*^-10}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      4.919024293495612*^-10}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{
+       0, 6.780000575714742*^-10, 
+        9.838048586991224*^-10}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      1.4757072880486836`*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{
+       0, 6.780000575714742*^-10, 
+        1.967609717398245*^-9}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      2.459512146747806*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{
+       0, 6.780000575714742*^-10, 
+        2.9514145760973672`*^-9}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{3.9851843489396035`*^-10, 
+       5.485135687625153*^-10, -2.459512146747806*^-10}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 0}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {2.757674674218207*^-10, 6.193838728758421*^-10,
+       1.4757072880486836`*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 2.459512146747806*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 0}, {
+       5.871652736242087*^-10, 
+       3.3900002878573706`*^-10, -2.459512146747806*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      4.919024293495612*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      9.838048586991224*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.4757072880486836`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.967609717398245*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.459512146747806*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.9514145760973672`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{
+       6.448163728018398*^-10, -2.095135399767784*^-10, \
+-2.459512146747806*^-10}, {
+       6.742859023157809*^-10, -7.087030411332684*^-11, 0}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.459512146747806*^-10}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      7.378536440243418*^-10}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.229756073373903*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.7216585027234642`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.2135609320730256`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.459512146747806*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.7054633614225864`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 0}, {
+       5.038522344576164*^-10, -4.5367058963414136`*^-10, \
+-2.459512146747806*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      4.919024293495612*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.459512146747806*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      9.838048586991224*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      7.378536440243418*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.4757072880486836`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.229756073373903*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.967609717398245*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.7216585027234642`*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.459512146747806*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.2135609320730256`*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.9514145760973672`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{
+       8.303106003266271*^-26, -6.780000575714742*^-10, \
+-2.459512146747806*^-10}, {
+       1.4096413834422306`*^-10, -6.631841296109196*^-10, 0}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.459512146747806*^-10}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      7.378536440243418*^-10}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.229756073373903*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.7216585027234642`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.2135609320730256`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.459512146747806*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.7054633614225864`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+        0}, {-2.757674674218207*^-10, -6.193838728758421*^-10, \
+-2.459512146747806*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      4.919024293495612*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      9.838048586991224*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.4757072880486836`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.967609717398245*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.459512146747806*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.9514145760973672`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, \
+-2.459512146747806*^-10}, {-5.871652736242087*^-10, -3.3900002878573686`*^-10,
+         0}}], Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10,
+       2.459512146747806*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      7.378536440243418*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.229756073373903*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.7216585027234642`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.2135609320730256`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 2.459512146747806*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.7054633614225864`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 2.9514145760973672`*^-9}}]}, {
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+        0}, {-6.742859023157809*^-10, 
+       7.087030411332706*^-11, -2.459512146747806*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      4.919024293495612*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.459512146747806*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      9.838048586991224*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.4757072880486836`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.967609717398245*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.459512146747806*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.9514145760973672`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, 
+       5.485135687625153*^-10, -2.459512146747806*^-10}, \
+{-5.038522344576163*^-10, 4.536705896341415*^-10, 0}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.459512146747806*^-10}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 2.459512146747806*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 2.9514145760973672`*^-9}}]}}, {{
+     Line3DBox[{{0, 6.780000575714742*^-10, 0}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 2.459512146747806*^-10}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      4.919024293495612*^-10}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{
+       0, 6.780000575714742*^-10, 
+        9.838048586991224*^-10}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      1.4757072880486836`*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{
+       0, 6.780000575714742*^-10, 
+        1.967609717398245*^-9}, {-1.4096413834422374`*^-10, 
+       6.631841296109195*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{0., 6.780000575714742*^-10, 
+      2.459512146747806*^-9}, {-1.4096413834422374`*^-10, 
+      6.631841296109195*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+       2.459512146747806*^-10}, {
+       2.757674674218207*^-10, 6.193838728758421*^-10, 0}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {2.757674674218207*^-10, 6.193838728758421*^-10,
+       9.838048586991224*^-10}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{3.9851843489396035`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {2.757674674218207*^-10, 
+      6.193838728758421*^-10, 2.459512146747806*^-9}}]}, {
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 0}, {
+       5.871652736242087*^-10, 3.3900002878573706`*^-10, 
+       2.459512146747806*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      4.919024293495612*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      9.838048586991224*^-10}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.4757072880486836`*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      1.967609717398245*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{6.448163728018399*^-10, 2.0951353997677818`*^-10, 
+      2.459512146747806*^-9}, {5.871652736242087*^-10, 
+      3.3900002878573706`*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+       2.459512146747806*^-10}, {
+       6.742859023157809*^-10, -7.087030411332684*^-11, 0}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      7.378536440243418*^-10}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.229756073373903*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      1.7216585027234642`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.2135609320730256`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{6.448163728018398*^-10, -2.095135399767784*^-10, 
+      2.7054633614225864`*^-9}, {
+      6.742859023157809*^-10, -7.087030411332684*^-11, 
+      2.459512146747806*^-9}}]}, {
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 0}, {
+       5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+       2.459512146747806*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      4.919024293495612*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      7.378536440243418*^-10}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      9.838048586991224*^-10}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.229756073373903*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.4757072880486836`*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      1.7216585027234642`*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      1.967609717398245*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.2135609320730256`*^-9}}], 
+     Line3DBox[{{3.985184348939601*^-10, -5.485135687625156*^-10, 
+      2.459512146747806*^-9}, {
+      5.038522344576164*^-10, -4.5367058963414136`*^-10, 
+      2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+       2.459512146747806*^-10}, {
+       1.4096413834422306`*^-10, -6.631841296109196*^-10, 0}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      7.378536440243418*^-10}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      4.919024293495612*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.229756073373903*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      9.838048586991224*^-10}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      1.7216585027234642`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.4757072880486836`*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.2135609320730256`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      1.967609717398245*^-9}}], 
+     Line3DBox[{{8.303106003266271*^-26, -6.780000575714742*^-10, 
+      2.7054633614225864`*^-9}, {
+      1.4096413834422306`*^-10, -6.631841296109196*^-10, 
+      2.459512146747806*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+        0}, {-2.757674674218207*^-10, -6.193838728758421*^-10, 
+       2.459512146747806*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      4.919024293495612*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      9.838048586991224*^-10}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.4757072880486836`*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      1.967609717398245*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, -5.485135687625152*^-10, 
+      2.459512146747806*^-9}, {-2.757674674218207*^-10, \
+-6.193838728758421*^-10, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+       2.459512146747806*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 0}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      7.378536440243418*^-10}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.229756073373903*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      1.7216585027234642`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.2135609320730256`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-6.448163728018399*^-10, -2.0951353997677782`*^-10, 
+      2.7054633614225864`*^-9}, {-5.871652736242087*^-10, \
+-3.3900002878573686`*^-10, 2.459512146747806*^-9}}]}, {
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+        0}, {-6.742859023157809*^-10, 7.087030411332706*^-11, 
+       2.459512146747806*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      4.919024293495612*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 7.378536440243418*^-10}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      9.838048586991224*^-10}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.229756073373903*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.4757072880486836`*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 1.7216585027234642`*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      1.967609717398245*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.2135609320730256`*^-9}}], 
+     Line3DBox[{{-6.448163728018396*^-10, 2.0951353997677872`*^-10, 
+      2.459512146747806*^-9}, {-6.742859023157809*^-10, 
+      7.087030411332706*^-11, 2.7054633614225864`*^-9}}]}, {
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+       2.459512146747806*^-10}, {-5.038522344576163*^-10, 
+        4.536705896341415*^-10, 0}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      7.378536440243418*^-10}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 4.919024293495612*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.229756073373903*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 9.838048586991224*^-10}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      1.7216585027234642`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.4757072880486836`*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.2135609320730256`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 1.967609717398245*^-9}}], 
+     Line3DBox[{{-3.9851843489396045`*^-10, 5.485135687625153*^-10, 
+      2.7054633614225864`*^-9}, {-5.038522344576163*^-10, 
+      4.536705896341415*^-10, 2.459512146747806*^-9}}]}}}]], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.782393194549043*^9}],
+
+Cell[BoxData["\<\"IV. Export the Nanotube Atom Coordinates in the XYZ and the \
+GJF Formats\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931951630783`*^9}],
+
+Cell[BoxData["\<\"C:\\\\1\\\\Nanotube(5,5)AS.xyz\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.7823931951940804`*^9}],
+
+Cell[BoxData["\<\"C:\\\\1\\\\Nanotube(5,5)AS.gjf\"\>"], "Print",
+ CellChangeTimes->{3.782389789597291*^9, 3.782393195215081*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1272, 684},
+WindowSize->{1261, 553},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-Magnification->1.25,
 FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (May 21, 2008)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2009,38 +3286,44 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[590, 23, 25414, 735, 2082, "Input"],
+Cell[590, 23, 41800, 1180, 3572, "Input"],
 Cell[CellGroupData[{
-Cell[26029, 762, 476, 7, 27, "Print"],
-Cell[26508, 771, 460, 6, 27, "Print"],
-Cell[26971, 779, 492, 7, 27, "Print"],
-Cell[27466, 788, 514, 8, 27, "Print"],
-Cell[27983, 798, 475, 7, 27, "Print"],
-Cell[28461, 807, 434, 6, 27, "Print"],
-Cell[28898, 815, 447, 6, 27, "Print"],
-Cell[29348, 823, 459, 6, 27, "Print"],
-Cell[29810, 831, 488, 7, 27, "Print"],
-Cell[30301, 840, 496, 7, 27, "Print"],
-Cell[30800, 849, 596, 11, 27, "Print"],
-Cell[31399, 862, 435, 6, 27, "Print"],
-Cell[31837, 870, 453, 6, 27, "Print"],
-Cell[32293, 878, 929, 18, 30, "Print"],
-Cell[33225, 898, 874, 19, 49, "Print"],
-Cell[34102, 919, 809, 16, 43, "Print"],
-Cell[34914, 937, 478, 7, 27, "Print"],
-Cell[35395, 946, 476, 7, 27, "Print"],
-Cell[35874, 955, 471, 6, 27, "Print"]
-}, Open  ]],
-Cell[36360, 964, 481, 7, 35, "Output"],
-Cell[CellGroupData[{
-Cell[36866, 975, 488, 7, 27, "Print"],
-Cell[37357, 984, 480, 7, 27, "Print"],
-Cell[37840, 993, 448, 6, 27, "Print"],
-Cell[38291, 1001, 17878, 298, 550, "Print"],
-Cell[56172, 1301, 446, 6, 27, "Print"],
-Cell[56621, 1309, 36769, 662, 550, "Print"],
-Cell[93393, 1973, 441, 6, 27, "Print"],
-Cell[93837, 1981, 489, 8, 27, "Print"]
+Cell[42415, 1207, 152, 2, 23, "Print"],
+Cell[42570, 1211, 117, 1, 23, "Print"],
+Cell[42690, 1214, 166, 2, 23, "Print"],
+Cell[42859, 1218, 114, 1, 23, "Print"],
+Cell[42976, 1221, 153, 2, 23, "Print"],
+Cell[43132, 1225, 151, 2, 23, "Print"],
+Cell[43286, 1229, 190, 2, 23, "Print"],
+Cell[43479, 1233, 188, 3, 23, "Print"],
+Cell[43670, 1238, 152, 2, 23, "Print"],
+Cell[43825, 1242, 108, 1, 23, "Print"],
+Cell[43936, 1245, 121, 1, 23, "Print"],
+Cell[44060, 1248, 133, 1, 23, "Print"],
+Cell[44196, 1251, 162, 2, 23, "Print"],
+Cell[44361, 1255, 171, 2, 23, "Print"],
+Cell[44535, 1259, 272, 6, 23, "Print"],
+Cell[44810, 1267, 109, 1, 23, "Print"],
+Cell[44922, 1270, 126, 1, 23, "Print"],
+Cell[45051, 1273, 603, 13, 25, "Print"],
+Cell[45657, 1288, 548, 14, 43, "Print"],
+Cell[46208, 1304, 483, 11, 38, "Print"],
+Cell[46694, 1317, 150, 2, 23, "Print"],
+Cell[46847, 1321, 150, 2, 23, "Print"],
+Cell[47000, 1325, 236, 5, 23, "Print"],
+Cell[47239, 1332, 143, 1, 23, "Print"],
+Cell[47385, 1335, 162, 2, 23, "Print"],
+Cell[47550, 1339, 154, 2, 23, "Print"],
+Cell[47707, 1343, 132, 1, 23, "Print"],
+Cell[47842, 1346, 122, 1, 23, "Print"],
+Cell[47967, 1349, 17554, 293, 440, "Print"],
+Cell[65524, 1644, 120, 1, 23, "Print"],
+Cell[65647, 1647, 36445, 657, 440, "Print"],
+Cell[102095, 2306, 114, 1, 23, "Print"],
+Cell[102212, 2309, 53890, 948, 440, "Print"],
+Cell[156105, 3259, 173, 2, 23, "Print"],
+Cell[156281, 3263, 130, 1, 23, "Print"],
+Cell[156414, 3266, 128, 1, 23, "Print"]
 }, Open  ]]
 }, Open  ]]
 }

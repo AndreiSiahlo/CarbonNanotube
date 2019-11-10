@@ -1,0 +1,1776 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     67688,       1767]
+NotebookOptionsPosition[     65921,       1714]
+NotebookOutlinePosition[     66260,       1729]
+CellTagsIndexPosition[     66217,       1726]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<--------------------------------------------------\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Nanotube(6,6)L1.txt\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<Copy the whole text to a Wolfram Mathematica 6+ notebook and run\>\"",
+    "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<This programm \>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<- Generates the coordinates of the (6,6) natotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<- Shows and Exports the the Image of the nanotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  "\"\<- Exports the coordinates of the nanotube to the text files in the xyz \
+and the gjf formats\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<Andrei Siahlo \
+(http://physics.bsu.by/sites/all/other/info/index.php?k=11&p=p&id=258)\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<--------------------------------------------------\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<I. Input\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"DebugLoop", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<I.1. Input parameters\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Parameters of the Carbon Nanotube\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<nL1 - the number of the cells along the Length of the Nanotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nL1", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<nC6 - the number of the cell along the circumference of the \
+nanotube\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nC6", "=", "6"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nLp", "=", "nL1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nCp", "=", "nC6"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nABp", "=", "2"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"StructureName", "=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"\"\<Nanotube(\>\"", ",", 
+     RowBox[{"ToString", "[", "nCp", "]"}], ",", "\"\<,\>\"", ",", 
+     RowBox[{"ToString", "[", "nCp", "]"}], ",", "\"\<)\>\""}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Structure Name: \>\"", ",", "StructureName"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"OutputNanotubeFileNameHyperChemXYZ", "=", 
+   RowBox[{"ToFileName", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"StructureName", ",", "\"\<AS.xyz\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"OutputNanotubeFileNameHyperChemGJF", "=", 
+   RowBox[{"ToFileName", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"StructureName", ",", "\"\<AS.gjf\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<I.2 Units\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=."}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nm", "=", 
+   RowBox[{
+    RowBox[{"10.", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "9"}], ")"}]}], " ", "m"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"AA", "=", 
+   RowBox[{"0.1", " ", "nm"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<I.3.Input Geometry constants \>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"aCCp", "=", 
+   RowBox[{"1.42", " ", "AA"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"aa", "=", 
+   RowBox[{"aCC", " ", "2", " ", 
+    RowBox[{"Sqrt", "[", "3", "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"aap", "=", 
+   RowBox[{"aCCp", " ", "2", " ", 
+    RowBox[{"Sqrt", "[", "3", "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<aCC=\>\"", ",", "aCCp", ",", "\"\<  aa=\>\"", ",", 
+    RowBox[{"aa", " ", "\"\<=\>\""}], ",", "aap"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Sa", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"aCC", "^", "2"}], ")"}], " ", "3", " ", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", "3", "]"}], "/", "4"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Sap", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"aCCp", "^", "2"}], ")"}], " ", "3", " ", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", "3", "]"}], "/", "4"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Sa=\>\"", ",", "Sa", ",", "\"\<=\>\"", ",", "Sap"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"RNanotube", "=", 
+   RowBox[{"2", " ", "3", " ", "aCC", " ", 
+    RowBox[{"nC", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "Pi"}], ")"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"RNanotubep", "=", 
+   RowBox[{"2", " ", "3", " ", "aCCp", " ", 
+    RowBox[{"nCp", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "Pi"}], ")"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RNanotube=\>\"", ",", "RNanotube", ",", "\"\<=\>\"", ",", 
+     "RNanotubep"}], "]"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"h334", "=", 
+     RowBox[{"N", "[", 
+      RowBox[{"0.334", " ", "nm"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<h=\>\"", ",", "h334"}], "]"}], ";"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<--------------------------------------------------\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<II Generate the Atom coordinates in the Nanotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nAtoms", "=", 
+   RowBox[{"4", " ", "nL", " ", "nC"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nAtomsp", "=", 
+   RowBox[{"4", " ", "nLp", " ", "nCp"}]}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Number Of Atoms=\>\"", ",", "nAtomsp"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "Print", "[", "\"\<II.1. Initialize the Coordinates of the Atoms\>\"", 
+    "]"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GrapheneFlakeWLHAdXYZ", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"iW", ",", "1", ",", "nWp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeAdXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GrapheneFlakeWLHAuXYZ", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"iW", ",", "1", ",", "nWp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeAuXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GrapheneFlakeWLHBdXYZ", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"iW", ",", "1", ",", "nWp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeBdXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GrapheneFlakeWLHBuXYZ", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"iW", ",", "1", ",", "nWp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"jL", ",", "1", ",", "nLp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"kH", ",", "1", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeBuXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1.", ",", "1.", ",", "1."}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"LC", ",", "1", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"tijkABHatom", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "\"\<CACB\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iAtom", ",", "1", ",", "nAtomsp"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tijkABHatom", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1", ",", "\"\<CACBH\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iAtom", ",", "1", ",", "nAtomsp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeAtomsAd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Sphere", "[", 
+      RowBox[{
+       RowBox[{"NanotubeAdXYZ", "[", 
+        RowBox[{"[", 
+         RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+       RowBox[{"0.02", " ", "nm"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeAtomsBd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Sphere", "[", 
+      RowBox[{
+       RowBox[{"NanotubeBdXYZ", "[", 
+        RowBox[{"[", 
+         RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+       RowBox[{"0.02", " ", "nm"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeABdXYZ", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1.", " ", "nm"}], ",", 
+       RowBox[{"1.", " ", "nm"}], ",", 
+       RowBox[{"1.", " ", "nm"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NanotubeABuXYZ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1.", " ", "nm"}], ",", 
+        RowBox[{"1.", " ", "nm"}], ",", 
+        RowBox[{"1.", " ", "nm"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"jC", ",", "1", ",", 
+        RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"tiAtom", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"iL", ",", "1", ",", "nLp"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kH", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"lAB", ",", "1", ",", "nABp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{
+   "iL", ",", "iC", ",", "iH", ",", "phiA", ",", "phiB", ",", "zAd", ",", 
+    "zAu", ",", "zBd", ",", "zBu"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<II.2. Calculate the Coordinates of the Atoms in the Nanotube\>\"", 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"phiA", "=", 
+   RowBox[{"-", "1"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iAtom", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"kH", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lA", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lB", "=", "2"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"iL", "=", "1"}], ",", 
+    RowBox[{"iL", "\[LessEqual]", "nLp"}], ",", 
+    RowBox[{"iL", "++"}], ",", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+       RowBox[{
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<iL=\>\"", ",", "iL"}], "]"}], ";"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"iC", "=", "1"}], ",", 
+       RowBox[{"iC", "\[LessEqual]", 
+        RowBox[{"2", " ", "nCp"}]}], ",", 
+       RowBox[{"iC", "++"}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[Equal]", "1"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<iC=\>\"", ",", "iC"}], "]"}], ";"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"xA", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"IntegerPart", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"iL", "-", "1"}], ")"}], "/", "2"}], "]"}], 
+             "\[Equal]", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"iL", "-", "1"}], ")"}], "/", "2"}]}], ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"iW", "-", "1"}], ")"}], " ", "1.5", " ", "aCCp"}], ",",
+             
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"iW", "-", "1"}], ")"}], " ", "1.5", " ", "aCCp"}], 
+             "+", 
+             RowBox[{"0.0", " ", "aCCp"}]}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"phiA", "=", " ", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"IntegerPart", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"iL", "-", "1"}], ")"}], "/", "2"}], "]"}], 
+             "\[Equal]", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"iL", "-", "1"}], ")"}], "/", "2"}]}], ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"iC", "-", "1"}], ")"}], " ", "1.5", " ", "aCCp"}], 
+              ")"}], " ", "2", " ", 
+             RowBox[{"Pi", "/", 
+              RowBox[{"(", 
+               RowBox[{"2", " ", "nCp", " ", "1.5", " ", "aCCp"}], ")"}]}]}], 
+            ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"iC", "-", "1"}], ")"}], " ", "1.5", " ", "aCCp"}], 
+               "+", 
+               RowBox[{"0.0", " ", "aCCp"}]}], ")"}], " ", "2", " ", 
+             RowBox[{"Pi", "/", 
+              RowBox[{"(", 
+               RowBox[{"2", " ", "nCp", " ", "1.5", " ", "aCCp"}], 
+               ")"}]}]}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "2"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{
+            "\"\<iC=\>\"", ",", "iC", ",", "\"\< phiAd/(2Pi)=\>\"", ",", 
+             RowBox[{"phiA", "/", 
+              RowBox[{"(", 
+               RowBox[{"2", " ", "Pi"}], ")"}]}]}], "]"}], ";"}]}], "]"}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"zAd", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"IntegerPart", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"iC", "-", "1"}], ")"}], "/", "2"}], "]"}], 
+             "\[Equal]", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"iC", "-", "1"}], ")"}], "/", "2"}]}], ",", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"iL", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"aap", "/", "2"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"iL", "-", "1"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"aap", "/", "2"}], ")"}]}], "-", 
+             RowBox[{"2", " ", "0.25", " ", "aap"}]}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"zAu", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"IntegerPart", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"iC", "-", "1"}], ")"}], "/", "2"}], "]"}], 
+             "\[Equal]", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"iC", "-", "1"}], ")"}], "/", "2"}]}], ",", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"iL", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"aap", "/", "2"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"iL", "-", "1"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"aap", "/", "2"}], ")"}]}], "+", 
+             RowBox[{"2", " ", "0.25", " ", "aap"}]}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"phiB", "=", 
+         RowBox[{"0.0", "+", "phiA", "+", 
+          RowBox[{"aCCp", " ", "2", " ", 
+           RowBox[{"Pi", "/", 
+            RowBox[{"(", 
+             RowBox[{"nCp", " ", "1.5", " ", "aCCp", " ", "2"}], 
+             ")"}]}]}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"zBd", "=", 
+         RowBox[{"0.0", "+", "zAd"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"zBu", "=", 
+         RowBox[{"0.0", "+", "zAu"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "3"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{
+            "\"\<iL=\>\"", ",", "iL", ",", "\"\<  iC=\>\"", ",", "iC", ",", 
+             "\"\<NanotubeABdXYZ[[iC,iL]], NanotubeABuXYZ[[iC,iL]] are \
+defined\>\""}], "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"xAd", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"RNanotubep", " ", 
+           RowBox[{"Sin", "[", "phiA", "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"yAd", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"RNanotubep", " ", 
+           RowBox[{"Cos", "[", "phiA", "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"xBd", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"RNanotubep", " ", 
+           RowBox[{"Sin", "[", "phiB", "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"yBd", "=", 
+         RowBox[{"0.0", "+", 
+          RowBox[{"RNanotubep", " ", 
+           RowBox[{"Cos", "[", "phiB", "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeAdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"xAd", ",", "yAd", ",", "zAd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeAuXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"RNanotubep", " ", 
+            RowBox[{"Sin", "[", "phiA", "]"}]}], ",", 
+           RowBox[{"RNanotubep", " ", 
+            RowBox[{"Cos", "[", "phiA", "]"}]}], ",", "zAu"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeBdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"xBd", ",", "yBd", ",", "zBd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeBuXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iC", ",", "iL"}], "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"RNanotubep", " ", 
+            RowBox[{"Sin", "[", "phiB", "]"}]}], ",", 
+           RowBox[{"RNanotubep", " ", 
+            RowBox[{"Cos", "[", "phiB", "]"}]}], ",", "zBu"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        "\"\<The coordinates of the atoms are calculated. Now remember the \
+indexes\>\"", ";", "\[IndentingNewLine]", 
+        RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"lAB", "=", "lA"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeABdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", 
+         RowBox[{"{", 
+          RowBox[{"xAd", ",", "yAd", ",", "zAd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<iL,iC,kH,lAB=\>\"", ",", 
+             RowBox[{"{", 
+              RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "}"}]}], 
+            "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tiAtom", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", "iAtom"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<iAtom=\>\"", ",", "iAtom"}], "]"}], ";"}]}], "]"}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tijkABHatom", "[", 
+          RowBox[{"[", "iAtom", "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"iL", ",", "iC", ",", "kH", ",", "\"\<CA\>\""}], "}"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"lAB", "=", "lB"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NanotubeABdXYZ", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", 
+         RowBox[{"{", 
+          RowBox[{"xBd", ",", "yBd", ",", "zBd"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tiAtom", "[", 
+          RowBox[{"[", 
+           RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], "]"}], 
+         "=", "iAtom"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tijkABHatom", "[", 
+          RowBox[{"[", "iAtom", "]"}], "]"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"iL", ",", "iC", ",", "kH", ",", "\"\<CB\>\""}], "}"}]}], 
+        ";"}]}], "]"}], ";"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<The Coordinates of the Nanotube Atoms are calculated\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{
+   "iL", ",", "iC", ",", "phiAd", ",", "phiAu", ",", "phiBd", ",", "phiBu", 
+    ",", "zAd", ",", "zAu", ",", "zBd", ",", "zBu"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<III Show the Atoms in the Nanotube\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeAtomsAd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Sphere", "[", 
+      RowBox[{
+       RowBox[{"NanotubeAdXYZ", "[", 
+        RowBox[{"[", 
+         RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+       RowBox[{"0.04", " ", "nm"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeAtomsBd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Sphere", "[", 
+      RowBox[{
+       RowBox[{"NanotubeBdXYZ", "[", 
+        RowBox[{"[", 
+         RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+       RowBox[{"0.04", " ", "nm"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeAtoms", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "NanotubeAtomsAd"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Yellow", ",", "NanotubeAtomsBd"}], "}"}]}], "}"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"StructureName", ",", "\"\<Atoms.jpg\>\""}], "]"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "NanotubeAtoms", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"ToFileName", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"StructureName", ",", "\"\<Atoms.jpg\>\""}], "]"}]}], "]"}], 
+     ",", "NanotubeAtoms"}], "]"}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GrapheneLinesWLHABd", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"GrapheneFlakeWLHAdXYZ", "[", 
+           RowBox[{"[", 
+            RowBox[{"iW", ",", "jL", ",", "kH"}], "]"}], "]"}], ",", 
+          RowBox[{"GrapheneFlakeWLHBdXYZ", "[", 
+           RowBox[{"[", 
+            RowBox[{"iW", ",", "jL", ",", "kH"}], "]"}], "]"}]}], "}"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"iW", ",", "nWp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"jL", ",", "nLp"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"kH", ",", "nHp"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NanotubeLinesABd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Line", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NanotubeAdXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+        RowBox[{"NanotubeBdXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{"iC", ",", "jL"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeLinesABm1d", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Line", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NanotubeAdXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+        RowBox[{"NanotubeBdXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"iC", ">", "1"}], ",", 
+             RowBox[{"iC", "-", "1"}], ",", 
+             RowBox[{"2", " ", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
+       "}"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeLinesABm1u", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Line", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NanotubeAuXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{"iC", ",", "jL"}], "]"}], "]"}], ",", 
+        RowBox[{"NanotubeBuXYZ", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"iC", ">", "1"}], ",", 
+             RowBox[{"iC", "-", "1"}], ",", 
+             RowBox[{"2", " ", "nCp"}]}], "]"}], ",", "jL"}], "]"}], "]"}]}], 
+       "}"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"iC", ",", "1", ",", 
+       RowBox[{"2", " ", "nCp"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"jL", ",", "nLp"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"nLp", "\[LessEqual]", "1"}], ",", 
+    RowBox[{"NanotubeLinesABm1u", "=", "NanotubeLinesABm1d"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeLines", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"NanotubeLinesABd", ",", "NanotubeLinesABm1d", ",", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", "NanotubeLinesABm1u", "]"}], ",", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"nLp", "-", "1"}], ",", "1"}], "]"}]}], "]"}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"StructureName", ",", "\"\<Lines.jpg\>\""}], "]"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "NanotubeLines", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"ToFileName", "[", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"StructureName", ",", "\"\<Lines.jpg\>\""}], "]"}]}], "]"}], 
+    ",", "NanotubeLines"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NanotubeFigure", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "NanotubeAtomsAd"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Yellow", ",", "NanotubeAtomsBd"}], "}"}], ",", 
+      "NanotubeLinesABd", ",", "NanotubeLinesABm1d", ",", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", "NanotubeLinesABm1u", "]"}], ",", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"nLp", "-", "1"}], ",", "1"}], "]"}]}], "]"}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"StructureName", ",", "\"\<.jpg\>\""}], "]"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "NanotubeFigure", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"ToFileName", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"StructureName", ",", "\"\<.jpg\>\""}], "]"}]}], "]"}], ",", 
+     "NanotubeFigure"}], "]"}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<IV. Export the Nanotube Atom Coordinates in the XYZ and the GJF \
+Formats\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iX", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iY", "=", "2"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iZ", "=", "3"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"iAtom", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"xyzString", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<\>\"", ",", 
+     RowBox[{"{", "0", "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<\>\"", ",", 
+     RowBox[{"{", "0", "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"xyzStringN", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfStringN", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<%0scf int\>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<#\>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\< \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{"nLp", " ", "nCp", " ", "2"}], "-", 
+         RowBox[{"2", " ", "nLp"}]}], "]"}], ",", "\"\< pm3 1scf\>\""}], 
+      "]"}]}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\< \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfString", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"gjfString", ",", "\"\<0 1 \>\""}], "]"}]}], ";", 
+  RowBox[{"gjfStringN", "++"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gjfFirstAtomStringN", "=", 
+   RowBox[{"gjfStringN", "+", "1"}]}], ";"}], "\n", 
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+   RowBox[{
+    RowBox[{"Print", "[", "gjfString", "]"}], ";"}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"iL", "=", "1"}], ",", 
+     RowBox[{"iL", "\[LessEqual]", "nLp"}], ",", 
+     RowBox[{"iL", "++"}], ",", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"DebugLoop", "\[GreaterEqual]", "1"}], ",", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<iL=\>\"", ",", "iL"}], "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"iC", "=", "1"}], ",", 
+        RowBox[{"iC", "\[LessEqual]", 
+         RowBox[{"2", " ", "nCp"}]}], ",", 
+        RowBox[{"iC", "++"}], ",", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"DebugLoop", "\[Equal]", "1"}], ",", 
+           RowBox[{
+            RowBox[{"Print", "[", 
+             RowBox[{"\"\<iC=\>\"", ",", "iC"}], "]"}], ";"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"lAB", "=", "lA"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"xyzStringAppending", "=", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{
+            RowBox[{"Switch", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"tijkABHatom", "[", 
+                RowBox[{"[", 
+                 RowBox[{"tiAtom", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], 
+                  "]"}], "]"}], "]"}], "[", 
+               RowBox[{"[", "4", "]"}], "]"}], ",", "\"\<CA\>\"", ",", 
+              "\"\<6\\t\>\"", ",", "\"\<CB\>\"", ",", "\"\<6\\t\>\"", ",", 
+              "\"\<H\>\"", ",", "\"\<1\\t\>\"", ",", "\"\<F\>\"", ",", 
+              "\"\<9\\t\>\"", ",", "\"\<O\>\"", ",", "\"\<8\\t\>\"", ",", 
+              "\"\<N\>\"", ",", "\"\<7\\t\>\""}], "]"}], ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iX"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iY"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iZ"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}]}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfStringAppending", "=", "xyzStringAppending"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"xyzString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"xyzString", ",", "xyzStringAppending"}], "]"}]}], ";", 
+         RowBox[{"xyzStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"gjfString", ",", "gjfStringAppending"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"gjfStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"iAtom", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"lAB", "=", "lB"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"xyzStringAppending", "=", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{
+            RowBox[{"Switch", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"tijkABHatom", "[", 
+                RowBox[{"[", 
+                 RowBox[{"tiAtom", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB"}], "]"}], 
+                  "]"}], "]"}], "]"}], "[", 
+               RowBox[{"[", "4", "]"}], "]"}], ",", "\"\<CA\>\"", ",", 
+              "\"\<6\\t\>\"", ",", "\"\<CB\>\"", ",", "\"\<6\\t\>\"", ",", 
+              "\"\<H\>\"", ",", "\"\<1\\t\>\"", ",", "\"\<F\>\"", ",", 
+              "\"\<9\\t\>\"", ",", "\"\<O\>\"", ",", "\"\<8\\t\>\"", ",", 
+              "\"\<N\>\"", ",", "\"\<7\\t\>\""}], "]"}], ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iX"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iY"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}], ",", 
+            "\"\<\\t\>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"CForm", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"NanotubeABdXYZ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"iL", ",", "iC", ",", "kH", ",", "lAB", ",", "iZ"}],
+                   "]"}], "]"}], ")"}], "/", "AA"}], "]"}], "]"}]}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfStringAppending", "=", "xyzStringAppending"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"xyzString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"xyzString", ",", "xyzStringAppending"}], "]"}]}], ";", 
+         RowBox[{"xyzStringN", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"gjfString", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"gjfString", ",", "gjfStringAppending"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"gjfStringN", "++"}], ";"}]}], "]"}], ";"}]}], "]"}], ";"}], 
+  "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "\"\<Swap the 1st and 3rd atoms in the gjfString table (SV)\>\"", ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString1stAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", "gjfFirstAtomStringN", "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString2ndAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "1"}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"gjfString3rdAtom", "=", 
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "2"}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", "gjfFirstAtomStringN", "]"}], "]"}], "=", 
+     "gjfString3rdAtom"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gjfString", "[", 
+      RowBox[{"[", 
+       RowBox[{"gjfFirstAtomStringN", "+", "2"}], "]"}], "]"}], "=", 
+     "gjfString1stAtom"}], ";"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "OutputNanotubeFileNameHyperChemXYZ", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "OutputNanotubeFileNameHyperChemXYZ", ",", "xyzString", ",", 
+    "\"\<text\>\""}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "OutputNanotubeFileNameHyperChemGJF", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "OutputNanotubeFileNameHyperChemGJF", ",", "gjfString", ",", 
+    "\"\<text\>\""}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=."}], ";"}]}], "Input",
+ CellChangeTimes->{{3.782393045742532*^9, 3.7823930486546984`*^9}, {
+  3.7823931281392446`*^9, 3.7823931676275034`*^9}, {3.7823937831447086`*^9, 
+  3.7823937870729337`*^9}, {3.78239384348216*^9, 3.7823938567629194`*^9}, {
+  3.78239391778041*^9, 3.782393921724635*^9}, {3.7823940279467106`*^9, 
+  3.7823941012949057`*^9}, {3.782394733429062*^9, 3.782394785714052*^9}, {
+  3.7823949792541227`*^9, 3.782394991245808*^9}, {3.7823953461481075`*^9, 
+  3.7823953639041233`*^9}, {3.782395544036426*^9, 3.7823955995526013`*^9}, {
+  3.7823965241324844`*^9, 3.7823965465277653`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
+"Print",
+ CellChangeTimes->{3.782396649815673*^9}],
+
+Cell[BoxData["\<\"Nanotube(6,6)L1.txt\"\>"], "Print",
+ CellChangeTimes->{3.782396649833674*^9}],
+
+Cell[BoxData["\<\"Copy the whole text to a Wolfram Mathematica 6+ notebook \
+and run\"\>"], "Print",
+ CellChangeTimes->{3.7823966498526754`*^9}],
+
+Cell[BoxData["\<\"This programm \"\>"], "Print",
+ CellChangeTimes->{3.7823966498596754`*^9}],
+
+Cell[BoxData["\<\"- Generates the coordinates of the (6,6) natotube\"\>"], \
+"Print",
+ CellChangeTimes->{3.782396649868676*^9}],
+
+Cell[BoxData["\<\"- Shows and Exports the the Image of the nanotube\"\>"], \
+"Print",
+ CellChangeTimes->{3.782396649875676*^9}],
+
+Cell[BoxData["\<\"- Exports the coordinates of the nanotube to the text files \
+in the xyz and the gjf formats\"\>"], "Print",
+ CellChangeTimes->{3.7823966498836765`*^9}],
+
+Cell[BoxData["\<\"Andrei Siahlo \
+(http://physics.bsu.by/sites/all/other/info/index.php?k=11&p=p&id=258)\"\>"], \
+"Print",
+ CellChangeTimes->{3.7823966498906775`*^9}],
+
+Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
+"Print",
+ CellChangeTimes->{3.7823966498976774`*^9}],
+
+Cell[BoxData["\<\"I. Input\"\>"], "Print",
+ CellChangeTimes->{3.782396649905678*^9}],
+
+Cell[BoxData["\<\"I.1. Input parameters\"\>"], "Print",
+ CellChangeTimes->{3.7823966499136786`*^9}],
+
+Cell[BoxData["\<\"Parameters of the Carbon Nanotube\"\>"], "Print",
+ CellChangeTimes->{3.782396649920679*^9}],
+
+Cell[BoxData["\<\"nL1 - the number of the cells along the Length of the \
+Nanotube\"\>"], "Print",
+ CellChangeTimes->{3.782396649926679*^9}],
+
+Cell[BoxData["\<\"nC6 - the number of the cell along the circumference of the \
+nanotube\"\>"], "Print",
+ CellChangeTimes->{3.7823966499336796`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Structure Name: \"\>", 
+   "\[InvisibleSpace]", "\<\"Nanotube(6,6)\"\>"}],
+  SequenceForm["Structure Name: ", "Nanotube(6,6)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.7823966499406805`*^9}],
+
+Cell[BoxData["\<\"I.2 Units\"\>"], "Print",
+ CellChangeTimes->{3.782396649953681*^9}],
+
+Cell[BoxData["\<\"I.3.Input Geometry constants \"\>"], "Print",
+ CellChangeTimes->{3.7823966499626813`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"aCC=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"1.4200000000000003`*^-10", " ", "m"}], 
+   "\[InvisibleSpace]", "\<\"  aa=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"2", " ", 
+    SqrtBox["3"], " ", "\<\"=\"\>", " ", "aCC"}], "\[InvisibleSpace]", 
+   RowBox[{"4.919024293495612`*^-10", " ", "m"}]}],
+  SequenceForm[
+  "aCC=", 1.4200000000000003`*^-10 $CellContext`m, "  aa=", 2 
+   3^Rational[1, 2] "=" $CellContext`aCC, 
+   4.919024293495612*^-10 $CellContext`m],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.782396649971682*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Sa=\"\>", "\[InvisibleSpace]", 
+   FractionBox[
+    RowBox[{"3", " ", 
+     SqrtBox["3"], " ", 
+     SuperscriptBox["aCC", "2"]}], "4"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"2.6193804362864135`*^-20", " ", 
+    SuperscriptBox["m", "2"]}]}],
+  SequenceForm[
+  "Sa=", Rational[3, 4] 3^Rational[1, 2] $CellContext`aCC^2, "=", 
+   2.6193804362864135`*^-20 $CellContext`m^2],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.7823966499806824`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RNanotube=\"\>", "\[InvisibleSpace]", 
+   FractionBox[
+    RowBox[{"3", " ", "aCC", " ", "nC"}], "\[Pi]"], 
+   "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"8.136000690857692`*^-10", " ", "m"}]}],
+  SequenceForm[
+  "RNanotube=", 3 $CellContext`aCC $CellContext`nC/Pi, "=", 
+   8.136000690857692*^-10 $CellContext`m],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.782396649989683*^9}],
+
+Cell[BoxData["\<\"--------------------------------------------------\"\>"], \
+"Print",
+ CellChangeTimes->{3.7823966499996834`*^9}],
+
+Cell[BoxData["\<\"II Generate the Atom coordinates in the Nanotube\"\>"], \
+"Print",
+ CellChangeTimes->{3.7823966500076838`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number Of Atoms=\"\>", "\[InvisibleSpace]", "24"}],
+  SequenceForm["Number Of Atoms=", 24],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.782396650015684*^9}],
+
+Cell[BoxData["\<\"II.1. Initialize the Coordinates of the Atoms\"\>"], "Print",
+ CellChangeTimes->{3.782396650022685*^9}],
+
+Cell[BoxData["\<\"II.2. Calculate the Coordinates of the Atoms in the \
+Nanotube\"\>"], "Print",
+ CellChangeTimes->{3.782396650029685*^9}],
+
+Cell[BoxData["\<\"The Coordinates of the Nanotube Atoms are calculated\"\>"], \
+"Print",
+ CellChangeTimes->{3.7823966500376854`*^9}],
+
+Cell[BoxData["\<\"III Show the Atoms in the Nanotube\"\>"], "Print",
+ CellChangeTimes->{3.7823966500446863`*^9}],
+
+Cell[BoxData["\<\"Nanotube(6,6)Atoms.jpg\"\>"], "Print",
+ CellChangeTimes->{3.7823966500516863`*^9}],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[0, 1, 0], 
+    SphereBox[{0., 8.136000690857692*^-10, 0.}, 4.0000000000000004`*^-11], 
+    SphereBox[{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{7.045983283490505*^-10, -4.0680003454288447`*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-2.616737397750604*^-25, -8.136000690857692*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-7.045983283490503*^-10, -4.06800034542885*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-7.045983283490508*^-10, 4.068000345428841*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11]}, 
+   {RGBColor[1, 1, 0], 
+    SphereBox[{2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{6.2325381184437*^-10, 
+     5.22972043648445*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{8.012396558869336*^-10, 1.412801693464325*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{5.22972043648445*^-10, -6.2325381184437*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-2.7826761223848905`*^-10, -7.645339811908025*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-8.012396558869335*^-10, -1.4128016934643316`*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11]}}]], "Print",
+ CellChangeTimes->{3.7823966501066895`*^9}],
+
+Cell[BoxData["\<\"Nanotube(6,6)Lines.jpg\"\>"], "Print",
+ CellChangeTimes->{3.782396650410707*^9}],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {2.7826761223848874`*^-10, 
+     7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {6.2325381184437*^-10, 
+     5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     8.012396558869336*^-10, 1.412801693464325*^-10, 0.}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {
+     7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 0.}, {
+     5.22972043648445*^-10, -6.2325381184437*^-10, 0.}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {
+     1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10, 0.}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10, 0.}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}]}, {
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {
+     2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     6.2325381184437*^-10, 5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {8.012396558869336*^-10, 1.412801693464325*^-10, 
+     0.}}], Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 
+     0.}, {7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {5.22972043648445*^-10, -6.2325381184437*^-10, 
+     0.}}], Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10,
+      0.}}], Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10,
+      0.}}], Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}]}, {
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {
+     2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     6.2325381184437*^-10, 5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {8.012396558869336*^-10, 1.412801693464325*^-10, 
+     0.}}], Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 
+     0.}, {7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {5.22972043648445*^-10, -6.2325381184437*^-10, 
+     0.}}], Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10,
+      0.}}], Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10,
+      0.}}], Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}]}}]], "Print",
+ CellChangeTimes->{3.7823966504697104`*^9}],
+
+Cell[BoxData["\<\"Nanotube(6,6).jpg\"\>"], "Print",
+ CellChangeTimes->{3.7823966506107187`*^9}],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[0, 1, 0], 
+    SphereBox[{0., 8.136000690857692*^-10, 0.}, 4.0000000000000004`*^-11], 
+    SphereBox[{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{7.045983283490505*^-10, -4.0680003454288447`*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-2.616737397750604*^-25, -8.136000690857692*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-7.045983283490503*^-10, -4.06800034542885*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-7.045983283490508*^-10, 4.068000345428841*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11]}, 
+   {RGBColor[1, 1, 0], 
+    SphereBox[{2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{6.2325381184437*^-10, 
+     5.22972043648445*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{8.012396558869336*^-10, 1.412801693464325*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{5.22972043648445*^-10, -6.2325381184437*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{
+     1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-2.7826761223848905`*^-10, -7.645339811908025*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}, 4.0000000000000004`*^-11], 
+    SphereBox[{-8.012396558869335*^-10, -1.4128016934643316`*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}, 
+     4.0000000000000004`*^-11], 
+    SphereBox[{-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}, 
+     4.0000000000000004`*^-11]}, {
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {2.7826761223848874`*^-10, 
+     7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {6.2325381184437*^-10, 
+     5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     8.012396558869336*^-10, 1.412801693464325*^-10, 0.}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {
+     7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 0.}, {
+     5.22972043648445*^-10, -6.2325381184437*^-10, 0.}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {
+     1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10, 0.}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10, 0.}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}]}, {
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {
+     2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     6.2325381184437*^-10, 5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {8.012396558869336*^-10, 1.412801693464325*^-10, 
+     0.}}], Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 
+     0.}, {7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {5.22972043648445*^-10, -6.2325381184437*^-10, 
+     0.}}], Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10,
+      0.}}], Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10,
+      0.}}], Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}]}, {
+    Line3DBox[{{0., 8.136000690857692*^-10, 0.}, {-1.412801693464332*^-10, 
+     8.012396558869335*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{4.0680003454288457`*^-10, 
+     7.045983283490505*^-10, -2.459512146747806*^-10}, {
+     2.7826761223848874`*^-10, 7.645339811908027*^-10, 0.}}], 
+    Line3DBox[{{7.045983283490504*^-10, 4.068000345428847*^-10, 0.}, {
+     6.2325381184437*^-10, 5.22972043648445*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     8.136000690857692*^-10, -1.308368698875302*^-25, \
+-2.459512146747806*^-10}, {8.012396558869336*^-10, 1.412801693464325*^-10, 
+     0.}}], Line3DBox[{{7.045983283490505*^-10, -4.0680003454288447`*^-10, 
+     0.}, {7.645339811908026*^-10, -2.7826761223848894`*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{
+     4.068000345428849*^-10, -7.045983283490503*^-10, \
+-2.459512146747806*^-10}, {5.22972043648445*^-10, -6.2325381184437*^-10, 
+     0.}}], Line3DBox[{{-2.616737397750604*^-25, -8.136000690857692*^-10, 
+     0.}, {1.4128016934643274`*^-10, -8.012396558869336*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.068000345428847*^-10, -7.045983283490504*^-10, \
+-2.459512146747806*^-10}, {-2.7826761223848905`*^-10, -7.645339811908025*^-10,
+      0.}}], Line3DBox[{{-7.045983283490503*^-10, -4.06800034542885*^-10, 
+     0.}, {-6.2325381184437*^-10, -5.22972043648445*^-10, \
+-2.459512146747806*^-10}}], 
+    Line3DBox[{{-8.136000690857692*^-10, -1.494559080587929*^-25, \
+-2.459512146747806*^-10}, {-8.012396558869335*^-10, -1.4128016934643316`*^-10,
+      0.}}], Line3DBox[{{-7.045983283490508*^-10, 4.068000345428841*^-10, 
+     0.}, {-7.645339811908028*^-10, 
+     2.782676122384883*^-10, -2.459512146747806*^-10}}], 
+    Line3DBox[{{-4.06800034542885*^-10, 
+     7.045983283490503*^-10, -2.459512146747806*^-10}, \
+{-5.229720436484456*^-10, 6.232538118443695*^-10, 0.}}]}}]], "Print",
+ CellChangeTimes->{3.7823966507327256`*^9}],
+
+Cell[BoxData["\<\"IV. Export the Nanotube Atom Coordinates in the XYZ and the \
+GJF Formats\"\>"], "Print",
+ CellChangeTimes->{3.782396650968739*^9}],
+
+Cell[BoxData["\<\"C:\\\\1\\\\Nanotube(6,6)AS.xyz\"\>"], "Print",
+ CellChangeTimes->{3.7823966509827394`*^9}],
+
+Cell[BoxData["\<\"C:\\\\1\\\\Nanotube(6,6)AS.gjf\"\>"], "Print",
+ CellChangeTimes->{3.7823966509967403`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1272, 684},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (May 21, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 42740, 1201, 3572, "Input"],
+Cell[CellGroupData[{
+Cell[43355, 1228, 128, 2, 23, "Print"],
+Cell[43486, 1232, 95, 1, 23, "Print"],
+Cell[43584, 1235, 144, 2, 23, "Print"],
+Cell[43731, 1239, 92, 1, 23, "Print"],
+Cell[43826, 1242, 127, 2, 23, "Print"],
+Cell[43956, 1246, 127, 2, 23, "Print"],
+Cell[44086, 1250, 170, 2, 23, "Print"],
+Cell[44259, 1254, 166, 3, 23, "Print"],
+Cell[44428, 1259, 130, 2, 23, "Print"],
+Cell[44561, 1263, 84, 1, 23, "Print"],
+Cell[44648, 1266, 99, 1, 23, "Print"],
+Cell[44750, 1269, 109, 1, 23, "Print"],
+Cell[44862, 1272, 140, 2, 23, "Print"],
+Cell[45005, 1276, 148, 2, 23, "Print"],
+Cell[45156, 1280, 250, 6, 23, "Print"],
+Cell[45409, 1288, 85, 1, 23, "Print"],
+Cell[45497, 1291, 107, 1, 23, "Print"],
+Cell[45607, 1294, 579, 13, 25, "Print"],
+Cell[46189, 1309, 528, 14, 43, "Print"],
+Cell[46720, 1325, 459, 11, 38, "Print"],
+Cell[47182, 1338, 130, 2, 23, "Print"],
+Cell[47315, 1342, 128, 2, 23, "Print"],
+Cell[47446, 1346, 212, 5, 23, "Print"],
+Cell[47661, 1353, 121, 1, 23, "Print"],
+Cell[47785, 1356, 138, 2, 23, "Print"],
+Cell[47926, 1360, 132, 2, 23, "Print"],
+Cell[48061, 1364, 112, 1, 23, "Print"],
+Cell[48176, 1367, 100, 1, 23, "Print"],
+Cell[48279, 1370, 2863, 60, 263, "Print"],
+Cell[51145, 1432, 98, 1, 23, "Print"],
+Cell[51246, 1435, 5697, 101, 255, "Print"],
+Cell[56946, 1538, 95, 1, 23, "Print"],
+Cell[57044, 1541, 8475, 159, 263, "Print"],
+Cell[65522, 1702, 149, 2, 23, "Print"],
+Cell[65674, 1706, 108, 1, 23, "Print"],
+Cell[65785, 1709, 108, 1, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

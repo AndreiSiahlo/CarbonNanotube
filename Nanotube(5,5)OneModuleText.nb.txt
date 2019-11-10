@@ -3,7 +3,7 @@ Print["Nanotube(5,5).txt"];
 Print["Copy the whole text to a Wolfram Mathematica 6+ notebook and \
 run"];
 Print["This programm "];
-Print["- Generates the coordinates of the (10,10) natotube"];
+Print["- Generates the coordinates of the (5,5) natotube"];
 Print["- Shows and Exports the the Image of the nanotube"];
 Print["- Exports the coordinates of the nanotube to the text files in \
 the xyz and the gjf formats"]
@@ -99,31 +99,34 @@ lB = 2;
 For[iL = 1, iL <= nLp, iL++, If[DebugLoop >= 1, Print["iL=", iL];];
   For[iC = 1, iC <= 2 nCp, iC++, 
    If[DebugLoop == 1, Print["iC=", iC];];
-   xA = If[
-     IntegerPart[(iL - 1)/2] == (iL - 1)/
-       2, (iW - 1) 1.5 aCCp, (iW - 1) 1.5 aCCp + 0.0 aCCp];
+   xA = 0.0 + 
+     If[IntegerPart[(iL - 1)/2] == (iL - 1)/
+        2, (iW - 1) 1.5 aCCp, (iW - 1) 1.5 aCCp + 0.0 aCCp];
    phiA = 
-    If[IntegerPart[(iL - 1)/2] == (iL - 1)/
-       2, ((iC - 
-          1) 1.5 aCCp) 2 Pi/(2 nCp 1.5 aCCp), ((iC - 1) 1.5 aCCp + 
-        0.0 aCCp) 2 Pi/(2 nCp 1.5 aCCp)];
+    0.0 + If[
+      IntegerPart[(iL - 1)/2] == (iL - 1)/
+        2, ((iC - 
+           1) 1.5 aCCp) 2 Pi/(2 nCp 1.5 aCCp), ((iC - 1) 1.5 aCCp + 
+         0.0 aCCp) 2 Pi/(2 nCp 1.5 aCCp)];
    If[DebugLoop >= 2, 
     Print["iC=", iC, " phiAd/(2Pi)=", phiA/(2 Pi)];];
-   zAd = If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2),
+   zAd = 0.0 + 
+     If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2), 
       2 (iL - 1) (aap/2) - 2 0.25 aap];
-   zAu = If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2),
+   zAu = 0.0 + 
+     If[IntegerPart[(iC - 1)/2] == (iC - 1)/2, 2 (iL - 1) (aap/2), 
       2 (iL - 1) (aap/2) + 2 0.25 aap];
-   phiB = phiA + aCCp 2 Pi/(nCp 1.5 aCCp 2);
-   zBd = zAd;
-   zBu = zAu;
+   phiB = 0.0 + phiA + aCCp 2 Pi/(nCp 1.5 aCCp 2);
+   zBd = 0.0 + zAd;
+   zBu = 0.0 + zAu;
    If[DebugLoop >= 3, 
     Print["iL=", iL, "  iC=", iC, 
       "NanotubeABdXYZ[[iC,iL]], NanotubeABuXYZ[[iC,iL]] are \
 defined"];];
-   xAd = RNanotubep Sin[phiA];
-   yAd = RNanotubep Cos[phiA];
-   xBd = RNanotubep Sin[phiB];
-   yBd = RNanotubep Cos[phiB];
+   xAd = 0.0 + RNanotubep Sin[phiA];
+   yAd = 0.0 + RNanotubep Cos[phiA];
+   xBd = 0.0 + RNanotubep Sin[phiB];
+   yBd = 0.0 + RNanotubep Cos[phiB];
    NanotubeAdXYZ[[iC, iL]] = {xAd, yAd, zAd};
    NanotubeAuXYZ[[iC, iL]] = {RNanotubep Sin[phiA], 
      RNanotubep Cos[phiA], zAu};
